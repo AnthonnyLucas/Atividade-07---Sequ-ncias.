@@ -5,7 +5,7 @@ Este projeto oferece uma exploração visual completa da dinâmica do Mapeamento
 Conceito
 O projeto é centrado na equação recursiva:
 
-Pn+1= k*pn*(1-pn)
+Pn+1= k.pn.(1-pn)
 
 Apesar de sua simplicidade, esta fórmula modela como uma população (p_n) evolui ao longo das gerações (n) sob a influência de um fator de crescimento e de limitação ambiental (k). O projeto demonstra como, ao variar o parâmetro k, o sistema transita de um comportamento previsível e ordenado para um estado de caos determinístico.
 
