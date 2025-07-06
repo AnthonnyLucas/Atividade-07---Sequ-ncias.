@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise do Mapeamento Logístico</title>
+    <style>
+        /* --- Estilos Gerais --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* --- Container Principal --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 2em 3em;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- Títulos --- */
+        h1, h2, h3 {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 0.5em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-top: 1.5em;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: #2980b9;
+            margin-top: 1.5em;
+        }
+
+        /* --- Parágrafos e Listas --- */
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        /* --- Elementos Específicos --- */
+        .formula {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+            text-align: center;
+            margin: 1em 0;
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+
+        strong {
+            color: #2c3e50;
+        }
+
+        /* --- Responsividade para Celulares --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5em;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <h1>Gráficos e Análise dos Padrões</h1>
+            <p>Ao executar o código em Python, são gerados quatro gráficos. Cada um mostra a evolução da população (p_n) ao longo de 100 gerações (n) para um valor específico de `k`. A seguir, apresentamos a análise do padrão observado em cada caso.</p>
+        </header>
+
+        <section id="caso-1">
+            <h2>Caso 1: k = 2.5 (Estabilidade)</h2>
+            <h3>Observação do Gráfico:</h3>
+            <p>O gráfico mostrará que, após algumas poucas gerações iniciais de oscilação, a população rapidamente se estabiliza em um valor fixo.</p>
+            
+            <h3>Comentário:</h3>
+            <p>Para <strong>k = 2.5</strong>, a sequência converge para um <strong>ponto fixo estável</strong>. Independentemente da população inicial (desde que entre 0 e 1), a população sempre se ajustará até atingir um equilíbrio. Neste caso, o valor de equilíbrio é aproximadamente 0.6. Isso significa que o sistema é previsível e estável; a população de insetos não cresce indefinidamente nem se extingue, mas se mantém em 60% da capacidade máxima do ambiente.</p>
+            <div class="formula">
+                p_n &rarr; 1 - (1/k) = 1 - (1/2.5) = 0.6
+            </div>
+        </section>
+
+        <section id="caso-2">
+            <h2>Caso 2: k = 3.3 (Ciclo de Período 2)</h2>
+            <h3>Observação do Gráfico:</h3>
+            <p>Aqui, a população não converge para um único valor. Em vez disso, após as gerações iniciais, ela começa a oscilar de forma regular e previsível entre dois valores distintos.</p>
+            
+            <h3>Comentário:</h3>
+            <p>Este comportamento é conhecido como <strong>bifurcação de duplicação de período</strong> ou um <strong>ciclo de período 2</strong>. A população atinge um valor alto em uma geração e um valor baixo na geração seguinte, repetindo esse ciclo indefinidamente. O sistema ainda é previsível, mas agora seu equilíbrio não é um ponto fixo, e sim um ciclo entre dois pontos.</p>
+        </section>
+
+        <section id="caso-3">
+            <h2>Caso 3: k = 3.5 (Ciclo de Período 4)</h2>
+            <h3>Observação do Gráfico:</h3>
+            <p>O comportamento se torna ainda mais complexo. Após um período inicial de ajuste, a população começa a oscilar de forma regular entre quatro valores distintos.</p>
+            
+            <h3>Comentário:</h3>
+            <p>O sistema sofreu outra bifurcação, passando de um ciclo de período 2 para um <strong>ciclo de período 4</strong>. O padrão de oscilação é mais complexo, mas ainda é periódico e, portanto, previsível. Se continuássemos a aumentar `k` lentamente, veríamos ciclos de período 8, 16, 32, e assim por diante, em um processo chamado "cascata de duplicação de período".</p>
+        </section>
+
+        <section id="caso-4">
+            <h2>Caso 4: k = 4.0 (Caos Determinístico)</h2>
+            <h3>Observação do Gráfico:</h3>
+            <p>O gráfico para k = 4.0 é drasticamente diferente. Não há nenhum padrão discernível ou repetição. Os valores da população parecem saltar erraticamente por todo o intervalo entre 0 e 1.</p>
+            
+            <h3>Comentário:</h3>
+            <p>Este é o regime do <strong>caos determinístico</strong>. Embora a equação seja simples e determinística (cada valor depende estritamente do anterior), o comportamento a longo prazo é imprevisível, marcado por duas características principais:</p>
+            <ul>
+                <li><strong>Aperiodicidade:</strong> A sequência nunca se repete.</li>
+                <li><strong>Sensibilidade às condições iniciais:</strong> Uma mudança minúscula na população inicial p_1 levaria a uma sequência de valores completamente diferente após poucas gerações.</li>
+            </ul>
+            <p>Isso significa que, para k = 4, é impossível prever a população a longo prazo. O sistema exibe um comportamento complexo e aparentemente aleatório, que é uma característica fundamental da teoria do caos.</p>
+        </section>
+
+        <section id="conclusao">
+            <h2>Conclusão: A Rota para o Caos</h2>
+            <p>A análise da equação logística com diferentes valores de `k` demonstra uma jornada fascinante da ordem para o caos:</p>
+            <ul>
+                <li>Para `k` baixo, a população atinge um <strong>equilíbrio estável (convergência)</strong>.</li>
+                <li>À medida que `k` aumenta, o sistema passa por <strong>bifurcações</strong>, onde o número de pontos de equilíbrio dobra (ciclos de período 2, 4, 8...).</li>
+                <li>Acima de um certo valor de `k` (aproximadamente 3.57), o sistema entra em <strong>caos</strong>, exibindo um comportamento complexo e imprevisível.</li>
+            </ul>
+        </section>
+
+    </main>
+
+</body>
+</html>
